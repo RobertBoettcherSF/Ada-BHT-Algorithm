@@ -5,15 +5,17 @@ with Ada.Numerics.Elementary_Functions;
 
 package body BHT_Algorithm is
 
+   use type Ada.Containers.Count_Type;
+
    -- Hash functions for internal sets and maps
    function Hash_Range (Key : Range_Value) return Ada.Containers.Hash_Type is
    begin
-      return Ada.Containers.Hash_Type (Key mod 2**31);
+      return Ada.Containers.Hash_Type (Key);
    end Hash_Range;
 
    function Hash_Domain (Key : Domain_Value) return Ada.Containers.Hash_Type is
    begin
-      return Ada.Containers.Hash_Type (Key mod 2**31);
+      return Ada.Containers.Hash_Type (Key);
    end Hash_Domain;
 
    -- Data structures for classical querying phase
